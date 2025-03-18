@@ -1,12 +1,15 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Home from "./pages/home/Home";
 import Component01 from "./pages/component01/Component01";
+import HomePage from "./pages/home/HomePage";
+import MainLayout from './layout/MainLayout';
 
 function Main() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route index element={<Home />} />
+        <Route path='/' element={<MainLayout />}>
+          <Route index element={<HomePage />} />
+        </Route>
         <Route path="/deepDive">
           <Route index element={<div>DeepDive</div>} />
           <Route path="250318" element={<Component01 />} />
