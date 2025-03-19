@@ -28,7 +28,32 @@ function complete(color){
   h1.textContent = `${color} 애니메이션 재생 끝`;
 }
 
+class Tiger {
+  constructor(target, name){
+    this.animation = gsap.to(target, {
+      x: 100,
+      onComplete: this.complete,
+      callbackScope: this,
+    })
+    this.animation.pause();
+    this.name = name;
+  }
 
+  start(){
+    this.animation.play();
+  }
+
+  complete(){
+    console.log(this);
+    this.rander();
+  }
+
+  rander(){
+    h1.textContent = `${this.name} 애니메이션 재생 끝`
+  }
+}
+
+const pink = new Tiger(".pink", "핑핑이");
 
 
 
